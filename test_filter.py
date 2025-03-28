@@ -2,6 +2,7 @@ import pytest
 import os
 from main import filter_lines
 
+
 @pytest.fixture
 def temp_file(tmp_path):
     file_path = tmp_path / "test.txt"
@@ -9,11 +10,13 @@ def temp_file(tmp_path):
         f.write("line1\nline2\nkeyword\nline3\n")
     return file_path
 
+
 @pytest.fixture(autouse=True)
 def cleanup():
     yield
     if os.path.exists('filtered.txt'):
         os.remove('filtered.txt')
+
 
 @pytest.mark.parametrize("keyword, expected_lines", [
     ("keyword", ["keyword\n"]),

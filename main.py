@@ -5,4 +5,5 @@ def filter_lines(filename, keyword):
     with open('filtered.txt', 'w') as outfile:
         outfile.writelines(filtered_lines)
 
+
 filter_lines('text.txt', 'incididunt')
